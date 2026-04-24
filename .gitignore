@@ -1,3 +1,6 @@
 target
 grammars/
 *.wasm
+*.blade.php
+TestFolder
+**/.DS_Store

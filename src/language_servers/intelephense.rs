@@ -101,9 +101,40 @@ impl Intelephense {
             .and_then(|lsp_settings| lsp_settings.settings.clone())
             .unwrap_or_default();
 
-        Ok(Some(serde_json::json!({
+        let mut config = serde_json::json!({
             "intelephense": settings
-        })))
+        });
+
+        if let Some(obj) = config
+            .get_mut("intelephense")
+            .and_then(|v| v.as_object_mut())
+        {
+            if !obj.contains_key("files") {
+                obj.insert("files".to_string(), serde_json::json!({}));
+            }
+
+            if let Some(files) = obj.get_mut("files").and_then(|v| v.as_object_mut()) {
+                if !files.contains_key("associations") {
+                    files.insert(
+                        "associations".to_string(),
+                        serde_json::json!(["*.php", "*.blade.php"]),
+                    );
+                }
+            }
+
+            if !obj.contains_key("completion") {
+                obj.insert(
+                    "completion".to_string(),
+                    serde_json::json!({
+                        "insertUseDeclaration": true,
+                        "fullyQualifyGlobalConstantsAndFunctions": false,
+                        "triggerParameterHints": true
+                    }),
+                );
+            }
+        }
+
+        Ok(Some(config))
     }
 
     pub fn label_for_completion(&self, completion: zed::lsp::Completion) -> Option<CodeLabel> {

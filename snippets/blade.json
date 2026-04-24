@@ -1,0 +1,321 @@
+{
+  "@if": {
+    "prefix": "@if",
+    "body": ["@if(${1:condition})", "\t$0", "@endif"],
+    "description": "Blade if statement"
+  },
+  "@else": {
+    "prefix": "@else",
+    "body": ["@else"],
+    "description": "Blade else"
+  },
+  "@elseif": {
+    "prefix": "@elseif",
+    "body": ["@elseif(${1:condition})"],
+    "description": "Blade elseif"
+  },
+  "@foreach": {
+    "prefix": "@foreach",
+    "body": ["@foreach(${1:\\$items} as ${2:\\$item})", "\t$0", "@endforeach"],
+    "description": "Blade foreach loop"
+  },
+  "@for": {
+    "prefix": "@for",
+    "body": ["@for(${1:\\$i = 0; \\$i < count; \\$i++})", "\t$0", "@endfor"],
+    "description": "Blade for loop"
+  },
+  "@while": {
+    "prefix": "@while",
+    "body": ["@while(${1:condition})", "\t$0", "@endwhile"],
+    "description": "Blade while loop"
+  },
+  "@forelse": {
+    "prefix": "@forelse",
+    "body": [
+      "@forelse(${1:\\$items} as ${2:\\$item})",
+      "\t$0",
+      "@empty",
+      "\t",
+      "@endforelse"
+    ],
+    "description": "Blade forelse loop"
+  },
+  "@auth": {
+    "prefix": "@auth",
+    "body": ["@auth", "\t$0", "@endauth"],
+    "description": "Blade auth block"
+  },
+  "@guest": {
+    "prefix": "@guest",
+    "body": ["@guest", "\t$0", "@endguest"],
+    "description": "Blade guest block"
+  },
+  "@can": {
+    "prefix": "@can",
+    "body": ["@can(${1:'ability'})", "\t$0", "@endcan"],
+    "description": "Blade can block"
+  },
+  "@cannot": {
+    "prefix": "@cannot",
+    "body": ["@cannot(${1:'ability'})", "\t$0", "@endcannot"],
+    "description": "Blade cannot block"
+  },
+  "@canany": {
+    "prefix": "@canany",
+    "body": ["@canany([${1:'ability1', 'ability2'}])", "\t$0", "@endcanany"],
+    "description": "Blade canany block"
+  },
+  "@switch": {
+    "prefix": "@switch",
+    "body": [
+      "@switch(${1:\\$value})",
+      "\t@case(${2:value})",
+      "\t\t$0",
+      "\t\t@break",
+      "\t@default",
+      "\t\t",
+      "@endswitch"
+    ],
+    "description": "Blade switch statement"
+  },
+  "@section": {
+    "prefix": "@section",
+    "body": ["@section('${1:name}')", "\t$0", "@endsection"],
+    "description": "Blade section block"
+  },
+  "@yield": {
+    "prefix": "@yield",
+    "body": ["@yield('${1:name}')"],
+    "description": "Blade yield"
+  },
+  "@extends": {
+    "prefix": "@extends",
+    "body": ["@extends('${1:layout}')"],
+    "description": "Blade extends"
+  },
+  "@include": {
+    "prefix": "@include",
+    "body": ["@include('${1:view}')"],
+    "description": "Blade include"
+  },
+  "@includeIf": {
+    "prefix": "@includeIf",
+    "body": ["@includeIf('${1:view}')"],
+    "description": "Blade includeIf"
+  },
+  "@includeWhen": {
+    "prefix": "@includeWhen",
+    "body": ["@includeWhen(${1:condition}, '${2:view}')"],
+    "description": "Blade includeWhen"
+  },
+  "@includeUnless": {
+    "prefix": "@includeUnless",
+    "body": ["@includeUnless(${1:condition}, '${2:view}')"],
+    "description": "Blade includeUnless"
+  },
+  "@includeFirst": {
+    "prefix": "@includeFirst",
+    "body": ["@includeFirst([${1:'view1', 'view2'}])"],
+    "description": "Blade includeFirst"
+  },
+  "@each": {
+    "prefix": "@each",
+    "body": ["@each('${1:view}', ${2:\\$items}, '${3:item}')"],
+    "description": "Blade each"
+  },
+  "@component": {
+    "prefix": "@component",
+    "body": ["@component('${1:component}')", "\t$0", "@endcomponent"],
+    "description": "Blade component block"
+  },
+  "@slot": {
+    "prefix": "@slot",
+    "body": ["@slot('${1:name}')", "\t$0", "@endslot"],
+    "description": "Blade slot block"
+  },
+  "@push": {
+    "prefix": "@push",
+    "body": ["@push('${1:name}')", "\t$0", "@endpush"],
+    "description": "Blade push block"
+  },
+  "@prepend": {
+    "prefix": "@prepend",
+    "body": ["@prepend('${1:name}')", "\t$0", "@endprepend"],
+    "description": "Blade prepend block"
+  },
+  "@pushOnce": {
+    "prefix": "@pushOnce",
+    "body": ["@pushOnce('${1:name}')", "\t$0", "@endPushOnce"],
+    "description": "Blade pushOnce block"
+  },
+  "@stack": {
+    "prefix": "@stack",
+    "body": ["@stack('${1:name}')"],
+    "description": "Blade stack"
+  },
+  "@once": {
+    "prefix": "@once",
+    "body": ["@once", "\t$0", "@endonce"],
+    "description": "Blade once block"
+  },
+  "@verbatim": {
+    "prefix": "@verbatim",
+    "body": ["@verbatim", "\t$0", "@endverbatim"],
+    "description": "Blade verbatim block"
+  },
+  "@csrf": {
+    "prefix": "@csrf",
+    "body": ["@csrf"],
+    "description": "Blade CSRF token"
+  },
+  "@method": {
+    "prefix": "@method",
+    "body": ["@method('${1:PUT}')"],
+    "description": "Blade method spoofing"
+  },
+  "@error": {
+    "prefix": "@error",
+    "body": ["@error('${1:field}')", "\t$0", "@enderror"],
+    "description": "Blade error block"
+  },
+  "@props": {
+    "prefix": "@props",
+    "body": ["@props([${1}])"],
+    "description": "Blade props"
+  },
+  "@php": {
+    "prefix": "@php",
+    "body": ["@php", "\t$0", "@endphp"],
+    "description": "Blade PHP block"
+  },
+  "@env": {
+    "prefix": "@env",
+    "body": ["@env('${1:production}')", "\t$0", "@endenv"],
+    "description": "Blade env block"
+  },
+  "@production": {
+    "prefix": "@production",
+    "body": ["@production", "\t$0", "@endproduction"],
+    "description": "Blade production block"
+  },
+  "@isset": {
+    "prefix": "@isset",
+    "body": ["@isset(${1:\\$variable})", "\t$0", "@endisset"],
+    "description": "Blade isset block"
+  },
+  "@empty": {
+    "prefix": "@empty",
+    "body": ["@empty(${1:\\$variable})", "\t$0", "@endempty"],
+    "description": "Blade empty block"
+  },
+  "@unless": {
+    "prefix": "@unless",
+    "body": ["@unless(${1:condition})", "\t$0", "@endunless"],
+    "description": "Blade unless block"
+  },
+  "@selected": {
+    "prefix": "@selected",
+    "body": ["@selected(${1:condition})"],
+    "description": "Blade selected attribute"
+  },
+  "@checked": {
+    "prefix": "@checked",
+    "body": ["@checked(${1:condition})"],
+    "description": "Blade checked attribute"
+  },
+  "@disabled": {
+    "prefix": "@disabled",
+    "body": ["@disabled(${1:condition})"],
+    "description": "Blade disabled attribute"
+  },
+  "@readonly": {
+    "prefix": "@readonly",
+    "body": ["@readonly(${1:condition})"],
+    "description": "Blade readonly attribute"
+  },
+  "@required": {
+    "prefix": "@required",
+    "body": ["@required(${1:condition})"],
+    "description": "Blade required attribute"
+  },
+  "@class": {
+    "prefix": "@class",
+    "body": ["@class([${1:'class' => condition}])"],
+    "description": "Blade conditional class"
+  },
+  "@style": {
+    "prefix": "@style",
+    "body": ["@style([${1:'style' => condition}])"],
+    "description": "Blade conditional style"
+  },
+  "@aware": {
+    "prefix": "@aware",
+    "body": ["@aware([${1:'variable'}])"],
+    "description": "Blade aware"
+  },
+  "@inject": {
+    "prefix": "@inject",
+    "body": ["@inject('${1:variable}', '${2:class}')"],
+    "description": "Blade service injection"
+  },
+  "@json": {
+    "prefix": "@json",
+    "body": ["@json(${1:\\$variable})"],
+    "description": "Blade JSON output"
+  },
+  "@dd": {
+    "prefix": "@dd",
+    "body": ["@dd(${1:\\$variable})"],
+    "description": "Blade dd"
+  },
+  "@dump": {
+    "prefix": "@dump",
+    "body": ["@dump(${1:\\$variable})"],
+    "description": "Blade dump"
+  },
+  "@vite": {
+    "prefix": "@vite",
+    "body": ["@vite('${1:resources/js/app.js}')"],
+    "description": "Blade Vite asset"
+  },
+  "@livewireStyles": {
+    "prefix": "@livewireStyles",
+    "body": ["@livewireStyles"],
+    "description": "Livewire styles"
+  },
+  "@livewireScripts": {
+    "prefix": "@livewireScripts",
+    "body": ["@livewireScripts"],
+    "description": "Livewire scripts"
+  },
+  "@livewire": {
+    "prefix": "@livewire",
+    "body": ["@livewire('${1:component}')"],
+    "description": "Livewire component"
+  },
+  "@persist": {
+    "prefix": "@persist",
+    "body": ["@persist('${1:name}')", "\t$0", "@endpersist"],
+    "description": "Blade persist block"
+  },
+  "@teleport": {
+    "prefix": "@teleport",
+    "body": ["@teleport('${1:selector}')", "\t$0", "@endteleport"],
+    "description": "Blade teleport block"
+  },
+  "@fragment": {
+    "prefix": "@fragment",
+    "body": ["@fragment('${1:name}')", "\t$0", "@endfragment"],
+    "description": "Blade fragment block"
+  },
+  "@session": {
+    "prefix": "@session",
+    "body": ["@session('${1:key}')", "\t$0", "@endsession"],
+    "description": "Blade session block"
+  },
+  "@use": {
+    "prefix": "@use",
+    "body": ["@use('${1:App\\\\Models\\\\Model}')"],
+    "description": "Blade use statement"
+  }
+}
