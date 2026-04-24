@@ -1,7 +1,7 @@
 id = "laravel-zed"
-name = "Laravel"
+name = "Laravel (pre-alpha)"
 description = "Laravel & Blade support for Zed."
-version = "0.1.0"
+version = "0.0.1"
 schema_version = 1
 authors = ["Casper Kizewski <casper.kizewski.developer@gmail.com>"]
 repository = "https://github.com/Ssionn/laravel-zed"
