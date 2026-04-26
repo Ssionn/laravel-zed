@@ -95,4 +95,4 @@ When opening an issue, include:
 
 ## License
 
-MIT
+Apache 2.0
